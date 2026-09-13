@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalpesh Laxman Khandare | Senior Lead Software Engineer</title>
+  <style>
+    :root {
+      --ink: #17232b;
+      --muted: #52616b;
+      --line: #d8e1e5;
+      --accent: #087f8c;
+      --accent-dark: #075b65;
+      --soft: #eef7f7;
+      --paper: #ffffff;
+      --page: #e8edef;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      line-height: 1.42;
+      font-size: 10.5pt;
+    }
+
+    .resume {
+      width: 210mm;
+      margin: 24px auto;
+      background: var(--paper);
+      box-shadow: 0 12px 35px rgba(23, 35, 43, 0.14);
+    }
+
+    .page {
+      min-height: 297mm;
+      padding: 17mm 18mm 15mm;
+      position: relative;
+    }
+
+    .page + .page { border-top: 12px solid var(--page); }
+
+    header {
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--accent-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 29pt;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .title {
+      margin: 7px 0 9px;
+      color: var(--muted);
+      font-size: 12pt;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 18px;
+      color: var(--muted);
+      font-size: 9.3pt;
+    }
+
+    .contact span::before {
+      color: var(--accent);
+      content: "•";
+      margin-right: 7px;
+      font-weight: 700;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: start;
+      margin-bottom: 17px;
+    }
+
+    .lifecycle {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 4px;
+      margin: 0 0 17px;
+    }
+
+    .lifecycle span {
+      padding: 6px 4px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-size: 7.7pt;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .summary {
+      margin: 0;
+      font-size: 11.1pt;
+      line-height: 1.52;
+    }
+
+    section { margin-top: 17px; }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 9px;
+      color: var(--accent-dark);
+      font-size: 11.3pt;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    h2::after {
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+      content: "";
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px 22px;
+    }
+
+    .skill-row { display: grid; grid-template-columns: 92px 1fr; gap: 8px; }
+    .skill-row b { color: var(--accent-dark); font-size: 9.4pt; }
+    .skill-row span { color: var(--muted); font-size: 9.4pt; }
+
+    .role { margin: 0 0 16px; }
+    .role:last-child { margin-bottom: 0; }
+
+    .role-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+    }
+
+    .role-heading h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13.3pt;
+      color: var(--ink);
+    }
+
+    .date { color: var(--accent-dark); font-size: 9.5pt; font-weight: 700; white-space: nowrap; }
+    .project { margin: 3px 0 6px; color: var(--muted); font-size: 9.5pt; font-style: italic; }
+
+    .subtheme {
+      margin: 10px 0 4px;
+      color: var(--accent-dark);
+      font-size: 9.4pt;
+      font-weight: 700;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+    }
+
+    ul { margin: 5px 0 0 18px; padding: 0; }
+    li { margin: 0 0 5px; padding-left: 2px; }
+    li::marker { color: var(--accent); }
+
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+    .leadership-stack {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .compact-list { margin-top: 0; }
+    .compact-list li { margin-bottom: 4px; }
+
+    .credential {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding: 6px 0;
+    }
+
+    .credential:last-child { border-bottom: 0; }
+    .credential span { color: var(--muted); }
+    .credential b { color: var(--ink); }
+
+    .note {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      background: #fbfcfc;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 8.8pt;
+    }
+
+    @media print {
+      body { background: white; }
+      .resume { width: auto; margin: 0; box-shadow: none; }
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: auto; }
+      .page + .page { border-top: 0; }
+    }
+
+    @media (max-width: 850px) {
+      body { background: white; }
+      .resume { width: 100%; margin: 0; box-shadow: none; }
+      .page { min-height: auto; padding: 28px 22px 45px; }
+      .intro, .skills, .two-column { grid-template-columns: 1fr; }
+      .lifecycle { grid-template-columns: repeat(2, 1fr); }
+      .role-heading { display: block; }
+      .date { display: block; margin-top: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="resume">
+    <section class="page">
+      <header>
+        <h1>Kalpesh Laxman Khandare</h1>
+        <div class="title">Senior Lead Full-Stack Software Engineer | DevSecOps</div>
+        <div class="contact">
+          <span>Pune, India</span>
+          <span>8149910518</span>
+          <span>kalpesh12589@gmail.com</span>
+          <span>LinkedIn URL to be added</span>
+        </div>
+      </header>
+
+      <div class="intro">
+        <p class="summary"><b>Senior Lead Full-Stack Software Engineer with 10 years of experience</b> delivering secure, scalable software across application security, cloud platforms, manufacturing systems, and enterprise modernization. Experienced in system design and architecture, and across the complete software lifecycle from requirements through frontend and backend development, testing, secure CI/CD deployment, and continuous improvement. Strong background in Python, AWS, React, TypeScript, Terraform, GitHub Actions, WPF, and .NET.</p>
+      </div>
+
+      <div class="lifecycle" aria-label="End-to-end software delivery lifecycle">
+        <span>Discover</span><span>Design</span><span>Build</span><span>Test</span><span>Secure</span><span>Deploy</span><span>Operate</span><span>Improve</span>
+      </div>
+
+      <section>
+        <h2>Core Capabilities</h2>
+        <div class="skills">
+          <div class="skill-row"><b>Backend</b><span>Python automation, .NET services, REST APIs, event-driven workflows</span></div>
+          <div class="skill-row"><b>Frontend</b><span>React, WPF, WinForms, Xamarin</span></div>
+          <div class="skill-row"><b>Languages</b><span>Python, JavaScript, TypeScript, C#, VB.NET, SQL, YAML</span></div>
+          <div class="skill-row"><b>Architecture</b><span>System design, solution architecture, modular design, integrations, scalability, and security tradeoffs</span></div>
+          <div class="skill-row"><b>Cloud</b><span>AWS Lambda, ECS, SQS, SNS, S3, DynamoDB, Secrets Manager, CloudFront, Route 53, ACM</span></div>
+          <div class="skill-row"><b>Observability</b><span>Grafana, monitoring, dashboards, metrics, troubleshooting, and operational visibility</span></div>
+          <div class="skill-row"><b>Quality</b><span>Unit, integration, manual system testing, test automation, performance optimization</span></div>
+          <div class="skill-row"><b>Security</b><span>Checkmarx, Mend, GHAS, OWASP Top 10</span></div>
+          <div class="skill-row"><b>Delivery</b><span>Terraform, GitHub Actions, Azure Pipelines, Jenkins, CI/CD</span></div>
+          <div class="skill-row"><b>AI-assisted</b><span>GitHub Copilot, prompt engineering, code generation, review, testing, and refinement</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Professional Experience</h2>
+        <article class="role">
+          <div class="role-heading">
+            <h3>GSEC - Global Security India | Senior Lead Software Engineer</h3>
+            <div class="date">2025 - Present</div>
+          </div>
+          <div class="project">Security platforms: Checkmarx, Mend, Jerboa, and GitHub Advanced Security</div>
+          <div class="subtheme">Security Platform Automation</div>
+          <ul>
+            <li>Built event-driven AWS automation using Python, Lambda, ECS, SQS, and SNS to onboard GitHub repositories into Checkmarx and Mend, trigger scans, and synchronize security findings.</li>
+            <li>Created GitHub Actions and AWS Lambda utilities to support Checkmarx queries and enable faster resolution of security and access-related issues.</li>
+          </ul>
+
+          <div class="subtheme">Mend SCA Modernization</div>
+          <ul>
+            <li>Made significant contributions to Mend SCA scanning and reachability coverage, improving the usefulness and adoption of dependency security findings.</li>
+            <li>Improved Mend reachability coverage from approximately 9% to approximately 47%, expanding the value of dependency risk analysis.</li>
+            <li>Improved Mend operational stability and increased Mend coverage from approximately 72% to more than 96%.</li>
+            <li>Reduced recurring Mend support queries by approximately 50%, strengthening user confidence in Mend-based SCA scanning.</li>
+            <li>Contributed to the migration from PAT-based authentication to short-lived tokens for Mend integrations, reducing PAT rotation effort to zero.</li>
+          </ul>
+
+          <div class="subtheme">GHAS Architecture</div>
+          <ul>
+            <li>Designed the system foundation for GitHub Advanced Security to deliver value to end users while enabling internal teams to actively monitor GHAS and respond proactively.</li>
+            <li>Supported the strategic adoption of GitHub Advanced Security as a replacement for Checkmarx and Jerboa, with future Mend migration considered.</li>
+          </ul>
+
+          <div class="subtheme">AI-Assisted Engineering</div>
+          <ul>
+            <li>Used AI-assisted development practices with GitHub Copilot and prompt engineering to accelerate implementation while retaining engineering review, testing, and security validation.</li>
+          </ul>
+
+          <div class="subtheme">Checkmarx Optimization</div>
+          <ul>
+            <li>Applied Terraform and GitHub Actions to improve repeatability of infrastructure and software delivery workflows.</li>
+            <li>Reduced organization-level Checkmarx custom groups from approximately 25,000 to fewer than 5,000, reducing JWT size and improving authentication reliability.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-heading">
+            <h3>ECN Management Modernization | Lead Software Engineer</h3>
+            <div class="date">2024</div>
+          </div>
+          <div class="project">React | TypeScript | AWS | Terraform | GitHub Actions</div>
+          <ul>
+            <li>Proposed and architected a modular web-based replacement for a legacy engineering change management process.</li>
+            <li>Led delivery of the React and TypeScript application on AWS using Terraform and GitHub Actions.</li>
+            <li>Guided the product from discovery and architecture approval through implementation and delivery, supporting technical leads across the team.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-heading">
+            <h3>Manufacturing Process Planner | SE &rarr; SSE &rarr; LSE</h3>
+            <div class="date">2017 - 2024</div>
+          </div>
+          <div class="project">Progression: Software Engineer → Senior Software Engineer → Lead Software Engineer</div>
+          <ul>
+            <li>Delivered core routing and element-standardization capabilities for a client-server manufacturing planning platform used by John Deere factories.</li>
+            <li>Improved application performance by approximately 70% through multithreading and targeted optimization.</li>
+            <li>Developed and tested functionality in VB.NET and WPF, including unit, integration, and manual system testing.</li>
+            <li>Led technical execution, mentored engineers, supported requirements refinement, and partnered with stakeholders to improve product effectiveness.</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+
+    <section class="page">
+      <section>
+        <h2>Earlier Experience</h2>
+        <article class="role">
+          <div class="role-heading">
+            <h3>EQUIP - Dealer Business System | GET</h3>
+            <div class="date">2016 - 2017</div>
+          </div>
+          <div class="project">WinForms | C# | REST APIs | Xamarin</div>
+          <ul>
+            <li>Delivered features for a dealer inventory management system used as a customer-facing interface for automotive and manufacturing operations.</li>
+            <li>Developed C# and REST API work items and contributed to unit and system testing.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-heading">
+            <h3>Barcode Scanner Mobile Application | GET</h3>
+            <div class="date">2016 - 2017</div>
+          </div>
+          <div class="project">C# | Xamarin | Android | iOS | Hardware integration</div>
+          <ul>
+            <li>Developed a cross-platform mobile application integrated with physical scanners for shop-floor inventory management.</li>
+            <li>Delivered features including barcode scanning, Okta security integration, data compression, efficient export, and load-time optimization.</li>
+          </ul>
+        </article>
+      </section>
+
+      <div class="leadership-stack">
+        <section>
+          <h2>Leadership</h2>
+          <ul class="compact-list">
+            <li><strong>Technical Leadership:</strong> Led Mend SCA improvements and GHAS system-design initiatives across architecture, security, monitoring, and operational outcomes.</li>
+            <li><strong>People Leadership:</strong> Led and mentored engineers through architecture, implementation, testing, deployment, and operational support while encouraging ownership and collaboration.</li>
+            <li><strong>Platform and Delivery Leadership:</strong> Served as Scrum Master, guided delivery priorities, removed technical blockers, and supported continuous improvement.</li>
+            <li><strong>Stakeholder and Community Leadership:</strong> Led the GSEC CyberKavach product showcase and translated stakeholder needs into actionable technical plans as a Technical Business Analyst.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Selective Impact</h2>
+          <ul class="compact-list">
+            <li>Checkmarx groups reduced from approximately <code>25,000</code> to fewer than <code>5,000</code>.</li>
+            <li>Mend reachability coverage improved from approximately <code>9%</code> to <code>47%</code>.</li>
+            <li>Mend coverage increased from approximately <code>72%</code> to more than <code>96%</code>.</li>
+            <li>Mend support queries reduced by approximately <code>50%</code>, with PAT rotation effort reduced to zero.</li>
+            <li>Manufacturing application performance improved by approximately <code>70%</code>.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section>
+        <h2>End-to-End Engineering</h2>
+        <div class="skills">
+          <div class="skill-row"><b>Discover</b><span>Translate stakeholder needs into requirements, acceptance criteria, and delivery plans.</span></div>
+          <div class="skill-row"><b>Design</b><span>Define system architecture, service boundaries, APIs, integrations, data flows, scalability, and security tradeoffs.</span></div>
+          <div class="skill-row"><b>Build</b><span>Deliver frontend experiences, backend services, automation, and data-backed business workflows.</span></div>
+          <div class="skill-row"><b>Validate</b><span>Create unit, integration, API, system, performance, and security checks appropriate to the change.</span></div>
+          <div class="skill-row"><b>Release</b><span>Automate infrastructure and deployments using Terraform and CI/CD platforms.</span></div>
+          <div class="skill-row"><b>Operate</b><span>Use Grafana and monitoring practices to support operational visibility, troubleshooting, and continuous improvement.</span></div>
+        </div>
+      </section>
+
+      <div class="credentials-stack">
+        <section>
+          <h2>Certifications</h2>
+          <div class="credential"><b>Azure Fundamentals</b><span>Microsoft, 2021</span></div>
+          <div class="credential"><b>Professional Scrum Developer</b><span>2019</span></div>
+          <div class="credential"><b>Scrum Master</b><span>Scrum.org / Scrum Alliance</span></div>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          <div class="credential"><b>Bachelor of Engineering in Computer Science</b><span>MIT Pune, 2016</span></div>
+          <div class="credential"><b>HSC</b><span>Maharashtra Board, 2012</span></div>
+          <div class="credential"><b>SSC</b><span>Maharashtra Board, 2010</span></div>
+        </section>
+      </div>
+
+      <section>
+        <h2>Recognition</h2>
+        <p>Received multiple WOW, CCI, CCT, and STOM recognitions for technical contribution, delivery excellence, collaboration, and customer focus, including awards and nominations from 2016 through 2026.</p>
+      </section>
+
+    </section>
+  </main>
+</body>
+</html>
